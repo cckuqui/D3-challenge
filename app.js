@@ -5,8 +5,8 @@ var margin = 20;
 
 var labelArea = 110;
 
-var tPadBot = 40;
-var tPadLeft = 40;
+var padbottom = 40;
+var padLeft = 40;
 
 var svg = d3
   .select("#scatter")
@@ -15,16 +15,16 @@ var svg = d3
   .attr("height", height)
   .attr("class", "chart");
 
-var circRadius;
-function crGet() {
+var circleRad;
+function getRad() {
   if (width <= 530) {
-    circRadius = 10;
+    circleRad = 10;
   }
   else {
-    circRadius = 15;
+    circleRad = 15;
   }
 }
-crGet();
+getRad();
 
 svg.append("g").attr("class", "xText");
 
@@ -36,7 +36,7 @@ function xTextRefresh() {
     "translate(" +
       ((width - labelArea) / 2 + labelArea) +
       ", " +
-      (height - margin - tPadBot) +
+      (height - margin - padbottom) +
       ")"
   );
 }
@@ -48,7 +48,7 @@ xText
   .attr("data-name", "poverty")
   .attr("data-axis", "x")
   .attr("class", "aText active x")
-  .text("In Poverty (%)");
+  .text("% in Poverty");
 
 xText
   .append("text")
@@ -56,7 +56,7 @@ xText
   .attr("data-name", "age")
   .attr("data-axis", "x")
   .attr("class", "aText inactive x")
-  .text("Age (Median)");
+  .text("Median Age");
 
 xText
   .append("text")
@@ -64,9 +64,9 @@ xText
   .attr("data-name", "income")
   .attr("data-axis", "x")
   .attr("class", "aText inactive x")
-  .text("Household Income (Median)");
+  .text("Median Household Income");
 
-var leftTextX = margin + tPadLeft;
+var leftTextX = margin + padLeft;
 var leftTextY = (height + labelArea) / 2 - labelArea;
 
 svg.append("g").attr("class", "yText");
@@ -219,7 +219,7 @@ function visualize(theData) {
     .attr("cy", function(d) {
       return yScale(d[curY]);
     })
-    .attr("r", circRadius)
+    .attr("r", circleRad)
     .attr("class", function(d) {
       return "stateCircle " + d.abbr;
     })
@@ -241,9 +241,9 @@ function visualize(theData) {
       return xScale(d[curX]);
     })
     .attr("dy", function(d) {
-      return yScale(d[curY]) + circRadius / 2.5;
+      return yScale(d[curY]) + circleRad / 2.5;
     })
-    .attr("font-size", circRadius)
+    .attr("font-size", circleRad)
     .attr("class", "stateText")
     .on("mouseover", function(d) {
       toolTip.show(d);
@@ -316,7 +316,7 @@ function visualize(theData) {
             .select(this)
             .transition()
             .attr("dy", function(d) {
-              return yScale(d[curY]) + circRadius / 3;
+              return yScale(d[curY]) + circleRad / 3;
             })
             .duration(300);
         });
@@ -348,7 +348,8 @@ function visualize(theData) {
     tickCount();
     xTextRefresh();
     yTextRefresh();
-    crGet();
+    getRad
+  ();
 
     d3
       .selectAll("circle")
@@ -359,17 +360,17 @@ function visualize(theData) {
         return xScale(d[curX]);
       })
       .attr("r", function() {
-        return circRadius;
+        return circleRad;
       });
 
     d3
       .selectAll(".stateText")
       .attr("dy", function(d) {
-        return yScale(d[curY]) + circRadius / 3;
+        return yScale(d[curY]) + circleRad / 3;
       })
       .attr("dx", function(d) {
         return xScale(d[curX]);
       })
-      .attr("r", circRadius / 3);
+      .attr("r", circleRad / 3);
   }
 }
