@@ -3,29 +3,32 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>D3Times</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Thing</title>
+  <link rel="stylesheet" href="https://bootswatch.com/4/pulse/bootstrap.min.css" media="screen">       
+  <link rel="stylesheet" href="https://bootswatch.com/_assets/css/custom.min.css">
   <link rel="stylesheet" href="css/d3Style.css">
 
 </head>
 
-<body>
+<body class='bg'>
   <div class="container">
-    <div class="row">
-      <div class="col-xs-12 col-md-12">
-        <h1>D3Times</h1>
+    <div class="card text-white bg-primary">
+      <div class="text-center">
+        <br>
+        <h1>Health Risks for certain Demographics Groups</h1>
+        <br>
       </div>
     </div>
-    <div class="row">
-      <div class="col-xs-12  col-md-9">
-        <div id="scatter">
-          <!-- We append our chart here. -->
-        </div>
-      </div>
+    <br>
+    <div class="card border-primary">
+      <div id="scatter"></div>
     </div>
-    <div class="row">
-      <div class="col-xs-12  col-md-9">
+    <div class="card text-white bg-primary">
+      <div class="card-header">
+        <h4 class='card-title'>Correlations between Health Risks and Age, Income and % Poverty</h4>
+      </div>
         <div class="article">
           <h2>Correlations Discovered Between Health Risks and Age, Income</h2>
           <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor
@@ -40,17 +43,16 @@
             quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean
             ultricies mi vitae est. Mauris placerat eleifend leo.</p>
         </div>
-      </div>
     </div>
   </div>
 
   <!-- Footer-->
-  <div id="footer">
-    <p>Cris</p>
+  <div class="footer-copyright text-center py-3">
+    Site created by <a href='http://www.github.com/cckuqui'>Cristina Bardan</a> - <a href='https://github.com/cckuqui/bellybutton'>Link to this repository</a>
   </div>
+
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.js"></script>
   <script src="https://d3js.org/d3.v5.min.js"></script>
   <script type="text/javascript" src="app.js"></script>
