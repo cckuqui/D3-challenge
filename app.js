@@ -1,5 +1,5 @@
 var width = parseInt(d3.select("#scatter").style("width"));
-var height = width - width / 3.9;
+var height = width - width / 2.5;
 
 var margin = 20;
 
